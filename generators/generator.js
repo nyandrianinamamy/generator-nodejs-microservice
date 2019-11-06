@@ -33,7 +33,7 @@ module.exports = class extends Generator {
     _stringHelpers(str) {
         return {
             slug: underscore.slugify(str),
-            class: underscore.classify(str),
+            pascal: underscore.classify(str),
             camel: underscore.camelize(str),
             dash: underscore(str)
                 .decapitalize()
