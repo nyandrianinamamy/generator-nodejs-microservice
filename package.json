@@ -1,24 +1,27 @@
 {
-  "name": "generator-nodejs-microservice",
-  "version": "1.0.0",
-  "description": "Yeoman nodejs microservice generator",
-  "files": [
-    "generators"
-  ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "nodejs",
-    "yeoman-generator",
-    "generator",
-    "microservice",
-    "typescript"
-  ],
-  "author": "Razafintsialonina Mamy <nyandrianinamamy@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "underscore.string": "^3.3.5",
-    "yeoman-generator": "^4.2.0"
-  }
+    "name": "generator-nodejs-microservice",
+    "version": "1.0.0",
+    "description": "Yeoman nodejs microservice generator",
+    "files": [
+        "app",
+        "controller",
+        "feature",
+        "repository"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "nodejs",
+        "yeoman-generator",
+        "generator",
+        "microservice",
+        "typescript"
+    ],
+    "author": "Razafintsialonina Mamy <nyandrianinamamy@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "underscore.string": "^3.3.5",
+        "yeoman-generator": "^4.2.0"
+    }
 }
