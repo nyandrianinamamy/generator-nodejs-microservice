@@ -1,6 +1,5 @@
 export class <%= pascal %>Builder {
-    constructor() {
-    }
+    constructor() {}
 
     make<%= pascal %>(<%= camel %>: I<%= pascal %>) {
         if (!<%= camel %>.name) {
