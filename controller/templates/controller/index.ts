@@ -1,4 +1,4 @@
-import { <%= pascal %>ControllerBuilder } from './<%= camel %>.controller';
+import { <%= pascal %>ControllerBuilder } from './<%= dash %>.controller';
 
 const <%= camel %>Controller = new <%= pascal %>ControllerBuilder();
 
