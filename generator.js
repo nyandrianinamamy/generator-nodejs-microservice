@@ -1,5 +1,5 @@
-const underscore = require('underscore.string');
 const Generator = require('yeoman-generator');
+const stringHelpers = require('./utils').stringHelpers;
 
 module.exports = class extends Generator {
     constructor(args, opts, layer, files) {
@@ -11,13 +11,13 @@ module.exports = class extends Generator {
     }
 
     writing() {
-        const strings = this._stringHelpers(this.options.name);
+        const strings = stringHelpers(this.options.name);
         const copyOpts = {
             globOptions: {
-                ignore: [],
-            },
+                ignore: []
+            }
         };
-        this.files.forEach((file) => {
+        this.files.forEach(file => {
             let destinationPath = '';
             // add base app name
             if (this.options.appName) {
@@ -34,20 +34,8 @@ module.exports = class extends Generator {
                 this.templatePath(`${this.layer}/${file}`),
                 this.destinationPath(destinationPath),
                 strings,
-                copyOpts,
+                copyOpts
             );
         });
-    }
-
-    _stringHelpers(str) {
-        return {
-            slug: underscore.slugify(str),
-            pascal: underscore.classify(str),
-            camel: underscore.camelize(str),
-            dash: underscore(str)
-                .decapitalize()
-                .dasherize()
-                .value(),
-        };
     }
 };
