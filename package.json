@@ -6,10 +6,12 @@
         "app",
         "controller",
         "feature",
-        "repository"
+        "repository",
+        "entity",
+        "routes"
     ],
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "mocha tests/**/**.js"
     },
     "keywords": [
         "nodejs",
@@ -23,5 +25,8 @@
     "dependencies": {
         "underscore.string": "^3.3.5",
         "yeoman-generator": "^4.2.0"
+    },
+    "devDependencies": {
+        "mocha": "^6.2.2"
     }
 }
