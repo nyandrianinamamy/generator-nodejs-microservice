@@ -8,8 +8,9 @@ export class <%= pascal %>RoutesBuilder {
     }
 
     private init() {
-        this.router.route('/create').post(<%= camel %>Controller.create.bind(<%= camel %>Controller));
-        this.router.route('/').get(<%= camel %>Controller.find.bind(<%= camel %>Controller));
+        this.router.route('/')
+            .get(<%= camel %>Controller.find.bind(<%= camel %>Controller))
+            .post(<%= camel %>Controller.create.bind(<%= camel %>Controller));
         this.router
             .route('/:id')
             .get(<%= camel %>Controller.findById.bind(<%= camel %>Controller))

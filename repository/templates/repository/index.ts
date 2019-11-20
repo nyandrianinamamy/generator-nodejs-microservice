@@ -1,4 +1,4 @@
-import { userModel } from '../entities/user.mongoose.schema';
+import { <%= camel %>Model } from '../entity';
 import { <%= pascal %>Repository } from './<%= dash %>.repository';
 
 // Connect the <%= camel %> repository to the db
