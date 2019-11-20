@@ -10,7 +10,7 @@ export class <%= pascal %>ControllerBuilder {
         wrapResponse(<%= camel %>Service.deleteById(req.params.id), req, res, next);
     }
     async find(req: Request, res: Response, next: NextFunction): Promise<void> {
-        wrapResponse(<%= camel %>Service.find(), req, res, next);
+        wrapResponse(<%= camel %>Service.find(req.query), req, res, next);
     }
     async findById(req: Request, res: Response, next: NextFunction): Promise<void> {
         wrapResponse(<%= camel %>Service.findById(req.params.id), req, res, next);
