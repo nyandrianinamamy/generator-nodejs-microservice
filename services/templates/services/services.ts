@@ -1,6 +1,8 @@
-import { <%= camel %>Builder } from '../entities';
-import { I<%= pascal %> } from '../entities/<%= dash %>.entity';
+import { <%= camel %>Builder } from '../entity';
+import { I<%= pascal %> } from '../entity/<%= dash %>.entity';
 import { <%= pascal %>Repository } from '../repository/<%= dash %>.repository';
+
+const NOT_FOUND = '<%= pascal %> not found';
 
 export class <%= pascal %>ServiceBuilder {
     <%= camel %>Repository: <%= pascal %>Repository;
@@ -17,9 +19,18 @@ export class <%= pascal %>ServiceBuilder {
     async deleteById(id: string): Promise<boolean> {
         const <%= camel %> = await this.findById(id);
         if (!<%= camel %>) {
-            throw new Error('<%= pascal %> not found');
+            throw new Error(NOT_FOUND);
         }
         return this.<%= camel %>Repository.delete(id);
+    }
+
+    // tslint:disable-next-line: no-any
+    async find(params: any): Promise<I<%= pascal %>[]> {
+        const { sort, skip, limit, search, ...filter } = params;
+        return this.<%= camel %>Repository
+            .filter(filter)
+            .search(search)
+            .findAndExec();
     }
 
     async findById(id: string): Promise<I<%= pascal %>> {
@@ -28,12 +39,16 @@ export class <%= pascal %>ServiceBuilder {
         }
         const <%= camel %> = await this.<%= camel %>Repository.findOne(id).exec();
         if (!<%= camel %>) {
-            throw new Error('<%= pascal %> not found');
+            throw new Error(NOT_FOUND);
         }
         return <%= camel %>;
     }
 
-    async find(): Promise<I<%= pascal %>[]> {
-        return this.<%= camel %>Repository.find({}).exec();
+    async update(id: string, data: I<%= pascal %>): Promise<I<%= pascal %>> {
+        const <%= camel %> = await this.<%= camel %>Repository.update(id, data);
+        if (!<%= camel %>) {
+            throw new Error(NOT_FOUND);
+        }
+        return <%= camel %>;
     }
 }
